@@ -5,6 +5,7 @@ import {RiDeleteBin2Fill as DelObj} from "react-icons/ri";
 import estilos from "./Produtos.module.css";
 import ModalData from "../components/ModalData";
 import {useState} from "react";
+import AdicionarProdutos from "./AdicionarProdutos";
 
 export default function Produtos() {
 
@@ -42,7 +43,6 @@ export default function Produtos() {
               <td>{produto.preco}</td>
               <td><img src={produto.img} alt={produto.desc} /></td>
               <td> <Link to={`/editar/produtos/${produto.id}`}><EditObj/></Link> | <Link to={`/excluir/produtos/${produto.id}`}><DelObj/></Link></td>
-
             </tr>
           ))}
         </tbody>
@@ -50,6 +50,7 @@ export default function Produtos() {
           <tr>
             <td colSpan={6}>PRODUTOS</td>
           </tr>
+          <Link to={`/adicionarProdutos`}>Adicionar Produto</Link>
         </tfoot>
       </table>
 
