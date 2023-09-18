@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { ListaProdutos } from '../components/ListaProdutos';
- 
+import './EditarProdutos.css'; 
+
 export default function EditarProdutos() {
   document.title = "EDITAR PRODUTO";
 

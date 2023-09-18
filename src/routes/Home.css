@@ -1,0 +1,41 @@
+/* Home.css */
+
+.form-container {
+    width: 300px; /* Defina a largura desejada para o container */
+    margin: 0 auto; /* Centralize o container horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form-container label {
+    font-weight: bold;
+  }
+  
+  .form-container input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-container button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #0056b3;
+  }
+  
