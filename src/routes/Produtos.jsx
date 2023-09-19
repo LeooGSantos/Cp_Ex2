@@ -6,7 +6,7 @@ import estilos from "./Produtos.module.css";
 import ModalData from "../components/ModalData";
 import {useState} from "react";
 import AdicionarProdutos from "./AdicionarProdutos";
-import {BiCartAdd as AddObj} from "react-icons/bi"
+
 
 export default function Produtos() {
 
@@ -51,7 +51,6 @@ export default function Produtos() {
           <tr>
             <td colSpan={6}>PRODUTOS</td>
           </tr>
-          <Link to={`/adicionar/produtos`}><AddObj/></Link>
         </tfoot>
       </table>
 

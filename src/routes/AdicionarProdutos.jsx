@@ -1,39 +1,67 @@
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { ListaProdutos } from "../components/ListaProdutos";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ListaProdutos } from '../components/ListaProdutos';
 
+export default function AdicionarProdutos() {
+  document.title = "ADICIONAR PRODUTO";
 
-export default function AdicionarProdutos(){
-    document.title = "ADICIONAR PRODUTOS";
+  const navigate = useNavigate();
 
-const App = () => {
-    const [list, setList] = useState(ListaProdutos);
-    const [name, setName] = useState('');
-  
-    function handleChange(event) {
-        setName(event.target.value);
-    }
-  
-    function handleAdd() {
-        const novaLista = list.concat({name, id:uuidv4()});
+  // armazena as informações do novo produto
+  const [novoProduto, setNovoProduto] = useState({
+    nome: '',
+    desc: '',
+    preco: '',
+    img: '',
+  });
 
-        setList(novaLista);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setNovoProduto({ ...novoProduto, [name]: value });
+  }
 
-        setName('');
-    }
-  
-    return (
-      <>
-        <div>
-          <input type="text" value={name} onChange={handleChange} />
-          <button type="btn" onClick={handleAdd}>Adicionar Produto</button>
-        </div>
-  
-        <ul>
-          {list.map((item) => (
-            <li key={produtos.id}>{produtos.name}</li>
-          ))}
-        </ul>
-      </>
-    );
-  }};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const proximoId = Math.max(...ListaProdutos.map((produto) => produto.id), 0) + 1;
+
+    const novoProdutoId = {
+      id: proximoId.toString(),
+
+      ...novoProduto,
+    };
+
+    ListaProdutos.push(novoProdutoId);
+
+    alert("Produto adicionado com SUCESSO!");
+
+    navigate('/produtos');
+  }
+
+  return (
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <fieldset>
+            <legend>Adicionar Produto</legend>
+            <div>
+              <label htmlFor="idNome">Nome</label>
+              <input type="text" name="nome" id="idNome" value={novoProduto.nome} onChange={handleChange} />
+            </div>
+            <div>
+              <label htmlFor="idDesc">Descrição</label>
+              <input type="text" name="desc" id="idDesc" value={novoProduto.desc} onChange={handleChange} />
+            </div>
+            <div>
+              <label htmlFor="idPreco">Preço</label>
+              <input type="text" name="preco" id="idPreco" value={novoProduto.preco} onChange={handleChange} />
+            </div>
+            <div>
+              <button>ADICIONAR</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </>
+  );
+}

@@ -9,7 +9,7 @@ import Produtos from './routes/Produtos.jsx';
 import Erro from './routes/Erro.jsx';
 import EditarProdutos from './routes/EditarProdutos.jsx';
 import ExcluirProdutos from './routes/ExcluirProdutos.jsx'
-import AdicionarProdutos from './routes/AdicionarProdutos.jsx'
+import AdicionarProdutos from './routes/AdicionarProdutos.jsx';
 
 const router = createBrowserRouter(
   [
