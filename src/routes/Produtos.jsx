@@ -52,11 +52,9 @@ export default function Produtos() {
           </tr>
         </tfoot>
       </table>
-
             <div>
               <ModalData statusModal={status.open} idProduto={status.id}/>
             </div>
-
     </>
   );
 }
