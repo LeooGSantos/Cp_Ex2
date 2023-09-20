@@ -19,7 +19,9 @@ export default function Produtos() {
   
   return (
     <>
-      <h1>Produtos Informáticos - FIAP</h1>
+      <h1>Produtos Informáticos - FIAPO</h1>
+
+      <Link to="/adicionar/produto">Adicionar Produtos</Link>
 
       <table className={estilos.tblEstilo}>
         <thead>
